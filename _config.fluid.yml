@@ -1,0 +1,127 @@
+#
+#---------------------------
+# 页头
+# Header
+#---------------------------
+navbar:
+  blog_title: Z.K.Blog
+
+#---------------------------
+# 页脚
+# Footer
+#---------------------------
+footer:
+  content: ""
+  beian:
+    enable: true
+    # ICP证号
+    icp_text: 京ICP备2023014619号
+    # 公安备案号，不填则只显示ICP
+    police_text:
+    # 公安备案的编号，用于URL跳转查询
+    police_code:
+    # 公安备案的图片. 为空时不显示备案图片
+    # police_icon:
+    # /img/police_beian.png
+
+#---------------------------
+# 首页
+# Home Page
+#---------------------------
+index:
+  banner_img: /images/3gbnlypreview.jpg
+  slogan:
+    enable: true
+    text: Z.K. 个人博客记录
+    api:
+      enable: false
+      url: "https://v1.hitokoto.cn/"
+      method: "GET"
+      headers: {}
+      keys: ["hitokoto"]
+
+#---------------------------
+# 文章页
+# Post Page
+#---------------------------
+post:
+  banner_img: /images/3gbnlypreview.jpg
+  banner_img_height: 70
+  banner_mask_alpha: 0.3
+
+#---------------------------
+# 归档页
+# Archive Page
+#---------------------------
+archive:
+  banner_img: /images/3gbnlypreview.jpg
+  banner_img_height: 60
+  banner_mask_alpha: 0.3
+
+#---------------------------
+# 分类页
+# Category Page
+#---------------------------
+category:
+  enable: true
+  banner_img: /images/3gbnlypreview.jpg
+  banner_img_height: 60
+  banner_mask_alpha: 0.3
+
+#---------------------------
+# 标签页
+# Tag Page
+#---------------------------
+tag:
+  enable: true
+  banner_img: /images/3gbnlypreview.jpg
+  banner_img_height: 80
+  banner_mask_alpha: 0.3
+  tagcloud:
+    min_font: 15
+    max_font: 30
+    unit: px
+    start_color: "#BBBBEE"
+    end_color: "#337ab7"
+
+#---------------------------
+# 关于页
+# About Page
+#---------------------------
+about:
+  banner_img: /images/3gbnlypreview.jpg
+  avatar: /images/wy.jpg
+  name: "Z.K."
+  intro: "技术宅，后面是什么来着，冲冲冲!!!"
+  icons:
+    - {
+        class: "iconfont icon-github-fill",
+        link: "https://github.com/1099571219",
+        tip: "GitHub",
+      }
+    - { class: "iconfont icon-wechat-fill", qrcode: "/images/qrcode.jpg" }
+
+#---------------------------
+# 自定义页
+# Custom Page
+#
+# 通过 hexo new page 命令创建的页面
+# Custom Page through `hexo new page`
+#---------------------------
+page:
+  banner_img: /images/3gbnlypreview.jpg
+  banner_img_height: 60
+  banner_mask_alpha: 0.3
+
+#---------------------------
+# 404页
+# 404 Page
+#---------------------------
+page404:
+  enable: true
+  banner_img: /images/3gbnlypreview.jpg
+  banner_img_height: 85
+  banner_mask_alpha: 0.3
+  # 重定向到首页的延迟(毫秒)
+  # Delay in redirecting to home page (milliseconds)
+  redirect_delay: 5000
