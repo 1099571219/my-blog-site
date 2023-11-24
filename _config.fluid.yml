@@ -1,4 +1,13 @@
 #
+# Site
+title: Z.K.Blog
+subtitle: ""
+description: "软件方面的博客记录"
+keywords:
+author: Z.K.
+language: zh-CN # 指定语言，会影响主题显示的语言，按需修改
+timezone: ""
+
 #---------------------------
 # 页头
 # Header
