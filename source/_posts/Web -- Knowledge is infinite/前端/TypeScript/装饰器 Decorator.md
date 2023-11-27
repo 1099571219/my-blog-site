@@ -3,6 +3,7 @@ title: 装饰器 Decorator
 categories: 
 - [Web -- Knowledge is infinite,前端,TypeScript]
 tag: TypeScript
+date: 2023-11-24
 ---
 # 装饰器 Decorator
 ```typescript

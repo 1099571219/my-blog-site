@@ -3,6 +3,7 @@ title: Covariance & Contravariance & Bivariance
 categories: 
 - [Web -- Knowledge is infinite,前端,TypeScript]
 tag: TypeScript
+date: 2023-11-24
 ---
 # Covariance & Contravariance & Bivariance
 这三者都是用来确定函数传入的参数为函数时，这个参数函数的参数类型

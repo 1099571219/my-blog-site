@@ -3,6 +3,7 @@ title: JSON 语言
 categories: 
 - [Web -- Knowledge is infinite,JSON]
 tag: JSON
+date: 2023-11-24
 ---
 # JSON 语言
 **JSON 不是编程语言而是一门标记语言 **

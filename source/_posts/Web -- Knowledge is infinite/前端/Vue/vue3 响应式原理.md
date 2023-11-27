@@ -3,6 +3,7 @@ title: vue3 响应式原理
 categories: 
 - [Web -- Knowledge is infinite,前端,Vue]
 tag: Vue
+date: 2023-11-24
 ---
 # vue3 响应式原理
 响应式就是会自动跟踪依赖的变化，当依赖发生改变时会触发所有追踪该依赖的副作用函数执行，

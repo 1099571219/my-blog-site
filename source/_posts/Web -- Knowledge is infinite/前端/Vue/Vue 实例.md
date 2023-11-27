@@ -3,6 +3,7 @@ title: Vue 实例
 categories: 
 - [Web -- Knowledge is infinite,前端,Vue]
 tag: Vue
+date: 2023-11-24
 ---
 # Vue 实例
 ## 如何使用 Vue 实例

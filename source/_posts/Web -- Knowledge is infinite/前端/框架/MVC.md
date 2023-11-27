@@ -3,6 +3,7 @@ title: MVC
 categories: 
 - [Web -- Knowledge is infinite,前端,框架]
 tag: 框架
+date: 2023-11-24
 ---
 # MVC
 设计模式是个框，什么都能往里装

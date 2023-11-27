@@ -3,6 +3,7 @@ title: JavaScript（二）对象分类
 categories: 
 - [Web -- Knowledge is infinite,前端,JavaScript]
 tag: JavaScript
+date: 2023-11-24
 ---
 # JavaScript（二）对象分类
 ## 对象分类

@@ -3,6 +3,7 @@ title: event loop
 categories: 
 - [Web -- Knowledge is infinite,前端,JavaScript]
 tag: JavaScript
+date: 2023-11-24
 ---
 # event loop
 macro 中有未执行完毕的 micro 则会等待 micro 执行完毕

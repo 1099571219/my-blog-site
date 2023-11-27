@@ -3,6 +3,7 @@ title: Vite
 categories: 
 - [Web -- Knowledge is infinite,前端,构建相关]
 tag: 构建相关
+date: 2023-11-24
 ---
 # Vite
 ##  create-vite 脚手架

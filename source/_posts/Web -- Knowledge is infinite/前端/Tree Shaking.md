@@ -3,6 +3,7 @@ title: Tree Shaking
 categories: 
 - [Web -- Knowledge is infinite,前端]
 tag: 前端
+date: 2023-11-24
 ---
 # Tree Shaking
 ## vue3 中 Tree Shaking 特性

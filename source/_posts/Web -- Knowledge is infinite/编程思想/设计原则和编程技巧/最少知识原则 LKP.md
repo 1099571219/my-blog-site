@@ -3,6 +3,7 @@ title: 最少知识原则 LKP
 categories: 
 - [Web -- Knowledge is infinite,编程思想,设计原则和编程技巧]
 tag: 设计原则和编程技巧
+date: 2023-11-24
 ---
 # 最少知识原则 LKP
 ## 定义

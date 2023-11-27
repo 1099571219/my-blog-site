@@ -3,6 +3,7 @@ title: Vue 数据响应式
 categories: 
 - [Web -- Knowledge is infinite,前端,Vue]
 tag: Vue
+date: 2023-11-24
 ---
 # Vue 数据响应式
 若一个物体能对外界的刺激作出反应，它就是响应式

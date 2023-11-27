@@ -3,6 +3,7 @@ title: TypeScript
 categories: 
 - [Web -- Knowledge is infinite,前端,TypeScript]
 tag: TypeScript
+date: 2023-11-24
 ---
 # TypeScript
 ## keyof 

@@ -3,6 +3,7 @@ title: JavaScript（一）基础
 categories: 
 - [Web -- Knowledge is infinite,前端,JavaScript]
 tag: JavaScript
+date: 2023-11-24
 ---
 # JavaScript（一）基础
 ## 语法

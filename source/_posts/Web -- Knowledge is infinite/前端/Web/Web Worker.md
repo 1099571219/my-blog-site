@@ -3,6 +3,7 @@ title: Web Worker
 categories: 
 - [Web -- Knowledge is infinite,前端,Web]
 tag: Web
+date: 2023-11-24
 ---
 # Web Worker
 Web Worker 是 HTML5 中的概念，它有两种类型，一种是专用线程 （ Dedicated Web Worker ），另一种是共享线程 （ Shared Web Worker ）

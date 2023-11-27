@@ -3,6 +3,7 @@ title: 静态服务器 Static Server 与动态服务器
 categories: 
 - [Web -- Knowledge is infinite,Node]
 tag: Node
+date: 2023-11-24
 ---
 # 静态服务器 Static Server 与动态服务器
 **判断依据**

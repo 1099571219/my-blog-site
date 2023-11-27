@@ -3,6 +3,7 @@ title: diff 算法 和 虚拟 DOM
 categories: 
 - [Web -- Knowledge is infinite,前端,Vue]
 tag: Vue
+date: 2023-11-24
 ---
 # diff 算法 和 虚拟 DOM
 ## diff （difference）

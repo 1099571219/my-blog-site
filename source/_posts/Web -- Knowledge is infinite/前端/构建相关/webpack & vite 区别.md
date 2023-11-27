@@ -3,6 +3,7 @@ title: webpack & vite 区别
 categories: 
 - [Web -- Knowledge is infinite,前端,构建相关]
 tag: 构建相关
+date: 2023-11-24
 ---
 # webpack & vite 区别
 ## 开发服务构建

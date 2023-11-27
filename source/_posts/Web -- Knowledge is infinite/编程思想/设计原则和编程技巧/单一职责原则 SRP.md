@@ -3,6 +3,7 @@ title: 单一职责原则 SRP
 categories: 
 - [Web -- Knowledge is infinite,编程思想,设计原则和编程技巧]
 tag: 设计原则和编程技巧
+date: 2023-11-24
 ---
 # 单一职责原则 SRP
 ## 定义

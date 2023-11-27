@@ -3,6 +3,7 @@ title: CSS3DRenderer 和 CSS2DRenderer 的区别
 categories: 
 - [Web -- Knowledge is infinite,可视化,Tree.js]
 tag: Tree.js
+date: 2023-11-24
 ---
 # CSS3DRenderer 和 CSS2DRenderer 的区别
  两者本质上就是将 DOM 标签 3D 化渲染在页面上，最终使用的时 CSS 的 Transform

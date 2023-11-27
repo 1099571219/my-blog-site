@@ -3,6 +3,7 @@ title: Vue & VueRuntime的区别和使用方法
 categories: 
 - [Web -- Knowledge is infinite,前端,Vue]
 tag: Vue
+date: 2023-11-24
 ---
 # Vue & VueRuntime的区别和使用方法
 **版本分别是 包含编译器的 Vue 运行时 & 单独的 Vue 运行时**

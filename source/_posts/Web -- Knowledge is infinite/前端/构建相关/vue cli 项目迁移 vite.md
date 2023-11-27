@@ -3,6 +3,7 @@ title: vue cli 项目迁移 vite
 categories: 
 - [Web -- Knowledge is infinite,前端,构建相关]
 tag: 构建相关
+date: 2023-11-24
 ---
 # vue cli 项目迁移 vite
 ### 尝试执行陈旧 vue cli 项目

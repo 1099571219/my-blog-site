@@ -1,10 +1,10 @@
 ---
 title: 异步与 Promise
-categories:
-  - [Web -- Knowledge is infinite, 前端, JavaScript]
+categories: 
+- [Web -- Knowledge is infinite,前端,JavaScript]
 tag: JavaScript
+date: 2023-11-24
 ---
-
 # 异步与 Promise
 
 **即 JS 异步编程模型**

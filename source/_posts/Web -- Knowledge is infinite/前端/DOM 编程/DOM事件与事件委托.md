@@ -3,6 +3,7 @@ title: DOM事件与事件委托
 categories: 
 - [Web -- Knowledge is infinite,前端,DOM 编程]
 tag: DOM 编程
+date: 2023-11-24
 ---
 # DOM事件与事件委托
 ## 事件

@@ -1,10 +1,10 @@
 ---
-title: 深入 Promise 期约
-categories:
-  - [Web -- Knowledge is infinite, 前端, JavaScript]
+title: 深入Promise 期约
+categories: 
+- [Web -- Knowledge is infinite,前端,JavaScript]
 tag: JavaScript
+date: 2023-11-28
 ---
-
 # 深入 Promise 期约
 
 JavaScript 作为一门为 Web 而生的语言，它从一开始就需要能够响应异步的用户交互，比如单击和按键操作事件等，Node.js 用回调函数代替了事件，使异步编程在 JS 领域更加流行，但当更多程序开始使用异步编程时，事件和回调函数却不能满足开发者想要做的所有事，它们还不够强大，而 Promise 就是这些问题的解决方案

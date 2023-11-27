@@ -3,6 +3,7 @@ title: defineProperty 和 Proxy 的区别
 categories: 
 - [Web -- Knowledge is infinite,前端,Vue]
 tag: Vue
+date: 2023-11-24
 ---
 # defineProperty 和 Proxy 的区别
 - Object.defineProperty只能对单个属性进行控制，而Proxy可以对整个对象进行控制。这意味着Proxy可以拦截更多的操作，比如has、deleteProperty、ownKeys等。而且Proxy不需要遍历对象的每个属性来定义拦截器函数，更加方便和高效。

@@ -3,6 +3,7 @@ title: 开放-封闭原则 OCP
 categories: 
 - [Web -- Knowledge is infinite,编程思想,设计原则和编程技巧]
 tag: 设计原则和编程技巧
+date: 2023-11-24
 ---
 # 开放-封闭原则 OCP
 ## 定义

@@ -3,6 +3,7 @@ title: AJAX 原理
 categories: 
 - [Web -- Knowledge is infinite,前端,JavaScript]
 tag: JavaScript
+date: 2023-11-24
 ---
 # AJAX 原理
 ## 背景
