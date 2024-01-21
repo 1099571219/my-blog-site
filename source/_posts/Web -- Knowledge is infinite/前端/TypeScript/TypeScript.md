@@ -246,7 +246,8 @@ class Test {
 2. 装饰器的运行时机：**读**到这个类的时候就会立刻被执行
 3. 开启 TS 的相关配置可以将 TypeScript 的类型约束作为元数据放入运行时态中，TypeScript 将有机会在运行时态中进行类型约束
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/23100954/1699953235426-785cfc83-ae66-4263-a569-ae8853a1094a.png#averageHue=%23757571&clientId=u9da51b4f-06b2-4&from=paste&height=712&id=uuFnj&originHeight=890&originWidth=2484&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=604632&status=done&style=none&taskId=uff38ef63-791d-4e5e-b648-b77d0f99cb5&title=&width=1987.2)
+![image.png](/images/image.png)
+
 ## 类型工具实现
 ```typescript
 type ObjectTypeA = { a: string; b: number; c: boolean };
