@@ -40,7 +40,7 @@ footer:
 # Home Page
 #---------------------------
 index:
-  banner_img: /images/3gbnlypreview.jpg
+  banner_img: /images/bg.jpg
   slogan:
     enable: true
     text: Z.K. 个人博客记录
@@ -56,7 +56,7 @@ index:
 # Post Page
 #---------------------------
 post:
-  banner_img: /images/3gbnlypreview.jpg
+  banner_img: /images/bg.jpg
   banner_img_height: 70
   banner_mask_alpha: 0.3
   # Mermaid 
@@ -71,7 +71,7 @@ post:
 # Archive Page
 #---------------------------
 archive:
-  banner_img: /images/3gbnlypreview.jpg
+  banner_img: /images/bg.jpg
   banner_img_height: 60
   banner_mask_alpha: 0.3
 
@@ -81,7 +81,7 @@ archive:
 #---------------------------
 category:
   enable: true
-  banner_img: /images/3gbnlypreview.jpg
+  banner_img: /images/bg.jpg
   banner_img_height: 60
   banner_mask_alpha: 0.3
 
@@ -91,7 +91,7 @@ category:
 #---------------------------
 tag:
   enable: true
-  banner_img: /images/3gbnlypreview.jpg
+  banner_img: /images/bg.jpg
   banner_img_height: 80
   banner_mask_alpha: 0.3
   tagcloud:
@@ -106,7 +106,7 @@ tag:
 # About Page
 #---------------------------
 about:
-  banner_img: /images/3gbnlypreview.jpg
+  banner_img: /images/bg.jpg
   avatar: /images/wy.jpg
   name: "Z.K."
   intro: "技术宅，后面是什么来着，冲冲冲!!!"
@@ -126,7 +126,7 @@ about:
 # Custom Page through `hexo new page`
 #---------------------------
 page:
-  banner_img: /images/3gbnlypreview.jpg
+  banner_img: /images/bg.jpg
   banner_img_height: 60
   banner_mask_alpha: 0.3
 
@@ -136,7 +136,7 @@ page:
 #---------------------------
 page404:
   enable: true
-  banner_img: /images/3gbnlypreview.jpg
+  banner_img: /images/bg.jpg
   banner_img_height: 85
   banner_mask_alpha: 0.3
   # 重定向到首页的延迟(毫秒)
