@@ -87,7 +87,7 @@ ping baidu.com
 ### PING 程序
 ping 是一个只用几千行写的程序
 ping 域名/IP 返回域名对应的IP
-### nslookup 命令
+### dnslookup 命令
 查询 DNS 记录 
 
 ---
