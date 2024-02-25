@@ -59,14 +59,14 @@ const envResolver = {
 export default defineConfig(({ command }) => envResolver[command]())
 ```
 #### vite 中的环境变量
-vite 内置了 dotEnv 库，dotEnv 库会自动解析 .env 字符串文件，比如将变量声明通过 replace 转换成 Key:val 的格式包在对象中，并插入到 process 对象中（但是 vite 考虑到和其他配置的一些冲突问题，并不过直接注入到 process 对象下）
+vite 内置了 dotEnv 库，dotEnv 库会自动解析 .env 字符串文件，比如将变量声明通过 replace 转换成 Key:val 的格式包在对象中，并插入到 process 对象中（但是 vite 考虑到和其他配置的一些冲突问题，并不会直接注入到 process 对象下）
 涉及 vite.config.js 中的一些配置包括：
 
 1. root
 2. envDir：用来配置当前环境变量的文件目录
 
 **vite 通过 loadEnv 来解决上面的问题**
-调用 loadEnv() 来确认环境变量文件地址：  会将传进来的比变量值进行拼接 ".env.development"，并根据我们提供的目录去取对应的配置文件并解析，默认 prefix 为 VITE，并放进返回的对象中
+调用 loadEnv() 来确认环境变量文件地址：  会将传进来的变量值进行拼接 ".env.development"，并根据我们提供的目录去取对应的配置文件并解析，默认 prefix 为 VITE，并放进返回的对象中
 ```javascript
 const baseEnvConfig = xxx
 const modeEnvConfig = xxx
