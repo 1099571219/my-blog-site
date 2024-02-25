@@ -33,7 +33,5 @@ new Vue({
 
 3. 区别
 
-![image.png](https://cdn.nlark.com/yuque/0/2021/png/21830680/1625739234452-bf265953-8c3d-4bf5-b686-e6b03d8b368b.png#clientId=u2407aaca-2908-4&from=paste&height=229&id=fprA2&originHeight=518&originWidth=1098&originalType=binary&ratio=1&rotation=0&showTitle=false&size=90910&status=done&style=none&taskId=u81bd5dce-24e4-48aa-a758-b81c9b192b9&title=&width=486)
-最好使用Vue非完整版因为运行时版本相比完整版体积要小大约 30%，所以应该尽可能使用这个版本。
-## codesandbox.io
-使用codesandbox.io, 点击浏览器右上角+号安装Chrome扩展应用, 我们就有了一个和本地VS Code一样体验的IDE![图片.png](https://cdn.nlark.com/yuque/0/2021/png/23100954/1639735153903-4ebc3cf5-64ca-4c6b-92ce-3f7648d3fed8.png#clientId=u55bccb25-cc8b-4&from=paste&height=595&id=u04ebbc5b&originHeight=1190&originWidth=2560&originalType=binary&ratio=1&rotation=0&showTitle=false&size=144414&status=done&style=none&taskId=uefd655a0-e424-4427-951f-10a2bb5f746&title=&width=1280)
+![](/images/vueRuntime.png)
+最好使用Vue非完整版因为运行时版本相比完整版体积要小大约 30%，所以应该尽可能使用这个版本
