@@ -1,5 +1,5 @@
 ---
-title: Vue 数据响应式
+title: Vue2 数据响应式
 categories: 
 - [Web -- Knowledge is infinite,前端,Vue]
 tag: Vue
