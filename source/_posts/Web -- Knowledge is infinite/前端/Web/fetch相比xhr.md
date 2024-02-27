@@ -1,12 +1,10 @@
 ---
-title: XHR 和 fetch 的区别
+title: fetch 相比于 xhr
 categories:
   - [Web -- Knowledge is infinite, 前端, Web]
 tag: Web
 date: 2023-11-24
 ---
-
-# XHR 和 fetch 的区别
 
 ## Fetch 功能优势
 1. Service Worker 环境里也能用，相比 xhr 只能运行在渲染进程内
