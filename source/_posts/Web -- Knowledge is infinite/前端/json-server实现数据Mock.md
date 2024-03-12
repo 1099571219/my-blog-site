@@ -3,7 +3,7 @@ title: json-server实现数据Mock
 categories:
   - [Web -- Knowledge is infinite, 前端]
 tag: 前端
-date: 2023-01-15
+date: 2023-11-24
 ---
 
 # json-server 实现数据 Mock
