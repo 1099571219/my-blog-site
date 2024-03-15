@@ -6,9 +6,11 @@ tag: 前端
 date: 2023-11-24
 ---
 
-# json-server 实现数据 Mock
+# 数据 Mock
 
-## 实现步骤
+## json-server 实现数据 Mock
+
+### 实现步骤
 
 1. 安装
 
@@ -25,3 +27,11 @@ pnpm i -D json-server
 ```
 
 4. 访问接口进行测试
+
+## apiFox 实现数据 Mock
+
+### 实现步骤
+
+1. 开启 本地/智能云 Mock 环境后可以模拟数据接口
+2. 新建请求接口
+3. 在响应中配置 json-schema/规则 返回 Mock 用例
