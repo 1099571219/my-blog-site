@@ -3,6 +3,7 @@ title: Token 控制
 categories:
   - [Web -- Knowledge is infinite, 前端]
 tag: 前端
+mermaid: true
 date: 2023-11-24
 ---
 
