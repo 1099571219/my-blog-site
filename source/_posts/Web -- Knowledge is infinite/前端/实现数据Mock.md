@@ -1,5 +1,5 @@
 ---
-title: json-server实现数据Mock
+title: 实现数据Mock
 categories:
   - [Web -- Knowledge is infinite, 前端]
 tag: 前端
