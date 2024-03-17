@@ -107,6 +107,64 @@ const [count, setCount] = useState(0);
 //2. 重新使用新的 count 渲染 UI
 ```
 
+### useReducer
+
+作用：和 useState 作用类似，用来管理相对复杂的状态数据
+
+#### 基础用法
+
+1. 定义一个 reducer 函数(根据不同的 action 返回不同的新状态)
+
+```javascript
+function reducer(state, action) {
+  // 根据不同的 action type 返回新的 state
+  switch (action.type) {
+    case "INCREMENT":
+      return state + 1;
+    case "DECREMENT":
+      return state - 1;
+    default:
+      return state;
+  }
+}
+```
+
+2. 在组件中调用 useReducer，并传入 reducer 函数和状态的初始值
+
+```javascript
+const [state, dispatch] = useReducer(reducer, 0);
+```
+
+3. 事件发生时，通过 dispatch 函数分派一个 action 对象(通知 reducer 要返回哪个新状态并渲染 UI)
+
+```javascript
+dispatch({ type: "INCREMENT" });
+```
+
+主要根据 dispatch 传入的 type 来触发 reducer 函数，随后根据不同的 type 返回不同的状态，并使用新的状态渲染 UI
+
+#### 分派 action 时传参
+
+```javascript
+dispatch({ type: "SET", payload: 100 });
+```
+
+```javascript
+function reducer(state, action) {
+  // 根据不同的 action type 返回新的 state
+  switch (action.type) {
+    case "INCREMENT":
+      return state + 1;
+    case "DECREMENT":
+      return state - 1;
+    case "SET":
+      return action.payload;
+    default:
+      return state;
+  }
+}
+```
+
 ### 修改状态规则
 
 #### 状态不可变
@@ -159,6 +217,7 @@ const handleChangeName = () => {
   graph LR
     React(React（state）)--->|state 绑定到 input 的 value 属性|input(input（value）)
     input--->|把 input 最新的 value 值设置给 state|React
+    classDef default stroke:black;
 ```
 
 1. 准备一个 React 状态值
@@ -323,6 +382,8 @@ useEffect(() => {
 
 说明:清除副作用的函数 **<font color="#1565c0">最常见</font>** 的执行时机是在 **<font color="#1565c0">组件卸载时自动执行</font>**
 
+**<font color="#1565c0"></font>**
+
 ### 自定义 Hook 函数
 
 概念:自定义 Hook 是以 **<font color="#1565c0">use 打头的函数</font>** ，通过自定义 Hook 函数可以用来实现 **<font color="#1565c0">逻辑的封装和复用</font>**
@@ -352,6 +413,419 @@ function useToggle() {
 
 1. 只能在组件中或者其他自定义 Hook 函数中调用
 2. 只能在组件的顶层调用，不能嵌套在 if、for、其他函数中
+
+### forWardRef
+
+使用 ref 暴露 DOM 节点给父组件
+
+#### 场景说明
+
+```mermaid
+graph LR
+  subgraph A[父组件 通过 ref 获取到子组件内部的 input 元素让其聚焦]
+    B[子组件 <\input\>]
+  end
+  classDef default stroke:black;
+```
+
+#### 语法实现
+
+```jsx
+// 子组件
+const Input = forwardRef((props, ref) => {
+  return <input type="text" ref={ref} />;
+});
+
+// 父组件
+function App() {
+  const inputRef = useRef(null);
+  return (
+    <>
+      <Input ref={inputRef} />
+    </>
+  );
+}
+```
+
+#### 场景实现
+
+```jsx
+// 子组件
+const Son = forwardRef((props, ref) => {
+  return <input type="text" ref={ref} />;
+});
+
+// 父组件
+function App() {
+  const sonRef = useRef(null);
+  const showRef = () => {
+    console.log(sonRef);
+    sonRef.current.focus();
+  };
+  return (
+    <>
+      <Son ref={sonRef} />
+      <button onClick={showRef}>Focus</button>
+    </>
+  );
+}
+```
+
+### useImperativeHandle
+
+作用：通过 ref 暴露子组件中的方法
+
+#### 场景说明
+
+```mermaid
+graph LR
+  subgraph A[父组件 通过 ref 调用子组件内部的 focus 方法实现聚焦]
+    B[子组件 <\input\>]
+  end
+  classDef default stroke:black;
+```
+
+```jsx
+// 子组件
+const Input = forwardRef((props, ref) => {
+  const inputRef = useRef(null);
+  //实现聚焦逻辑函数
+  const focusHandler = () => {
+    inputRef.current.focus();
+  };
+  //暴露函数给父组件调用
+  useImperativeHandle(ref, () => {
+    return {
+      // 暴露的方法
+      focusHandler,
+    };
+  });
+  return <input type="text" ref={inputRef} />;
+});
+
+// 父组件
+function App() {
+  const sonRef = useRef(null);
+  const focusHandler = () => {
+    console.log(sonRef.current);
+    sonRef.current.focusHandler;
+  };
+  return (
+    <>
+      <Son ref={sonRef} />
+      <button onClick={focusHandler}>focus</button>
+    </>
+  );
+}
+```
+
+## 性能优化相关
+
+### useMemo
+
+作用：在组件每次重新渲染的时候 **<font color="#1565c0">缓存计算的结果</font>**
+
+```jsx
+const res = useMemo(() => {
+  // 使用 useMemo 做缓存之后可以保证只有
+  // count1 依赖项发生变化才会重新计算
+  // 返回计算的结果
+}, [count1]);
+```
+
+### React.memo
+
+作用:允许组件在 **<font color="#1565c0">Props 没有改变</font>** 的情况下跳过渲染
+
+React 组件默认的渲染机制:只要父组件重新渲染子组件就会重新渲染
+
+```mermaid
+graph TB
+  A[App update]-->B[Son update]
+  classDef default stroke:black;
+```
+
+如果 Son 组件本身并不需要做渲染更新，是否存在浪费
+
+```jsx
+import { useState } from "react";
+// 验证默认的渲染机制   子组件随父组件一起渲染
+
+function Son() {
+  console.log("我是子组件，重新渲染了");
+  return <div>我是子组件</div>;
+}
+
+function App() {
+  const [count, setCount] = useState(0);
+  return (
+    <div className="App">
+      <button onClick={() => setCount(count + 1)}>+ {count}</button>
+      <Son />
+    </div>
+  );
+}
+export default App;
+```
+
+#### 基础用法
+
+```jsx
+const MemoComponent = memo(function SomeComponent(props) {
+  //...
+});
+```
+
+经过 memo 函数包裹生成的缓存组件只有在 props 发生变化的时候才会重新渲染
+
+```jsx
+import { useState, memo } from "react";
+// memo 进行缓存 只有 props 发生变化的时候
+// 才会重新渲染 {context}
+
+const MemoSon = memo(function Son() {
+  console.log("我是子组件，重新渲染了");
+  return <div>我是子组件</div>;
+});
+
+function App() {
+  const [count, setCount] = useState(0);
+  return (
+    <div className="App">
+      <button onClick={() => setCount(count + 1)}>+ {count}</button>
+      <MemoSon />
+    </div>
+  );
+}
+export default App;
+```
+
+#### props 的比较机制
+
+机制: 在使用 memo 缓存组件之后，React 会对 **<font color="#1565c0">每一个 prop</font>** 使用 **<font color="#1565c0">Object.is</font>** 比较新值和老值，返回 true，表示没有变化
+
+```javascript
+// prop 是简单类型
+Object.is(7,7)=>true
+// 没有变化
+
+//prop 是引用类型（对象/数组）
+Object.is([],[])=>false
+// 有变化，React 只关心引用是否变化
+```
+
+```jsx
+// 1. 传递一个简单类型的 prop   prop 变化时组
+// 件重新渲染
+
+// 2. 传递一个引用类型的 prop   比较的时新值和
+// 旧值的引用是否相等   当父组件函数重新执行时，
+// 实际上形成的是新的数组引用
+
+// 3. 保证引用稳定 - useMemo/useState 组件渲染的过程中缓存一个值
+import { useState, memo } from "react";
+
+const MemoSon = memo(function Son({ list }) {
+  console.log("我是子组件，重新渲染了");
+  return <div>我是子组件 {list}</div>;
+});
+
+function App() {
+  const [count, setCount] = useState(0);
+  // const list = [1,2,3]  2.
+  const list = useMemo(() => {
+    return [1, 2, 3];
+  }, []);
+  return (
+    <div className="App">
+      <button onClick={() => setCount(count + 1)}>+ {count}</button>
+      <MemoSon list={list} />
+    </div>
+  );
+}
+export default App;
+```
+
+### useCallback
+
+作用：在组件多次重新渲染的时候 **<font color="#1565c0">缓存函数</font>**
+
+```jsx
+const Input = memo(function Input({ onChange }) {
+  console.log("子组件重新渲染了");
+  return <input type="text" onChange={(e) => onChange(e.target.value)} />;
+});
+
+function App() {
+  // 传给子组件的函数
+  const changeHandler = (value) => console.log(value);
+  // 触发父组件重新渲染的函数
+  const [count, setCount] = useState(0);
+  return (
+    <div className="App">
+      {/** 把函数作为 prop 传递给子组件 */}
+      <Input onChange={changeHandler} />
+      <button onClick={() => setCount(count + 1)}>{count}</button>
+    </div>
+  );
+}
+```
+
+#### 基础用法
+
+```jsx
+// useCallback 的第二个参数为依赖项，当需要变更引用时使用
+const changeHandler = useCallback((value) => console.log(value), []);
+```
+
+使用 useCallback 包裹函数之后，函数可以保证在 **<font color="#1565c0">App 重新渲染的时候保持引用稳定</font>**
+
+## Class API（类组件）
+
+### 类组件基础结构
+
+类组件就是通过 **<font color="#1565c0">JS 中的类来组织组件的代码</font>**
+
+```jsx
+class Counter extends Component {
+  // 定义状态的变量
+  state = {
+    count: 0,
+  };
+  //事件回调
+  clickHandler = () => {
+    this.setState({
+      count: this.state.count + 1,
+    });
+  };
+  // UI 模板（JSX）
+  render() {
+    return <button onClick={this.clickHandler}>{this.state.count}</button>;
+  }
+}
+```
+
+1. 通过类属性 state 定义状态数据
+2. 通过 setState 方法来修改状态数据
+3. 通过 render 来写 UI 模板，JSX 语法一致
+
+### 类组件的生命周期函数
+
+概念:组件从创建到销毁的各个阶段自动执行的函数就是生命周期函数
+
+![](/images/react/class_life_cycle.png)
+
+1. componentDidMount:组件挂载完毕自动执行 - 异步数据获取
+2. componentWillUnmount: 组件卸载时自动执行 - 清理副作用
+
+```jsx
+class Son extends Component {
+  //生命周期函数
+  // 组件渲染完毕执行一次
+  componentDidMount() {
+    console.log("组件渲染完毕，开发请求");
+    //使用计时器
+    this.timer = setInterval(() => {
+      console.log("计时器运行中");
+    }, 1000);
+  }
+  // 组件卸载的时候自动执行  副作用清理的时候到了  清除计时器  清除事件绑定
+  componentWillUnmount() {
+    console.log("组件 son 被卸载了");
+    // 清除计时器
+    clearInterval(this.timer);
+  }
+  render() {
+    return <div>我是 son 组件</div>;
+  }
+}
+
+function App() {
+  const [show, setShow] = useState(true);
+  return (
+    <>
+      {show && <Son />}
+      <button onClick={() => setShow(false)}>unmount</button>
+    </>
+  );
+}
+```
+
+### 类组件的组件通信
+
+类组件和 Hooks 编写的组件在组件通信的思想上完全一致
+
+1. 父传子:通过 prop 绑定数据
+2. 子传父:通过 prop 绑定紧组件中的函数，子组件调用
+3. 兄弟通信:状态提升，通过父组件做桥接
+
+```jsx
+//1. 父传子  直接通过 prop
+// 子组件标签身上绑定父组件中的数据即可
+
+// 子组件
+class Son extends Component {
+  render() {
+    //使用 this.props.msg
+    return <div>我是 Son 组件,{this.props.msg}</div>;
+  }
+}
+
+// 父组件
+class Parent extends Component {
+  state = {
+    msg: "this is parent msg",
+  };
+  render() {
+    return (
+      <div>
+        我是 Parent 组件 <Son msg={this.state.msg} />
+      </div>
+    );
+  }
+}
+```
+
+```jsx
+// 2. 子传父 - 在子组件标签上绑定父组件中的函数
+// 子组件调用这个函数传递数据
+
+// 子组件
+class Son extends Component {
+  render() {
+    //使用 this.props.msg
+    return (
+      <>
+        <div>我是 Son 组件,{this.props.msg}</div>
+        <button onClick={()=>this.props.onGetSonMsg('this is son msg')}>send msg to parent</button>
+      </>
+    );
+  }
+}
+
+// 父组件
+class Parent extends Component {
+  state = {
+    msg: "this is parent msg",
+  };
+
+  getSonMsg = (sonMsg) => {
+    console.log(sonMsg);
+  };
+  render() {
+    return (
+      <div>
+        我是 Parent 组件{" "}
+        <Son msg={this.state.msg} onGetSonMsg={this.getSonMsg} />
+      </div>
+    );
+  }
+}
+```
+
+总结:
+- 思想保持一致
+- 类组件依赖于 this
 
 **<font color="#1565c0"></font>**
 **<font color="#1565c0"></font>**
