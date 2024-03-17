@@ -3,7 +3,6 @@ title: React设计思想
 categories:
   - [Web -- Knowledge is infinite, 前端, React]
 tag: React
-mermaid: true
 date: 2024-02-04
 ---
 
