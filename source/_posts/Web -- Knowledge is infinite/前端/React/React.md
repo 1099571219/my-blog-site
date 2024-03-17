@@ -88,6 +88,18 @@ function App() {
 }
 ```
 
+#### 受控组件 & 非受控组件
+
+根据组件中的值是否已经被 react 控制进行判断
+
+```jsx
+<input />
+
+<input type="text" value={value} onChange={changeHandler}/>
+
+
+```
+
 ### useState 基础使用
 
 useState 是一个 React Hook(函数)，它允许我们向组件添加一个 **<font color="#1565c0">状态变量</font>** ，从而控制影响组件的渲染结果
@@ -797,7 +809,9 @@ class Son extends Component {
     return (
       <>
         <div>我是 Son 组件,{this.props.msg}</div>
-        <button onClick={()=>this.props.onGetSonMsg('this is son msg')}>send msg to parent</button>
+        <button onClick={() => this.props.onGetSonMsg("this is son msg")}>
+          send msg to parent
+        </button>
       </>
     );
   }
@@ -824,8 +838,118 @@ class Parent extends Component {
 ```
 
 总结:
+
 - 思想保持一致
 - 类组件依赖于 this
+
+## 其他
+
+### JSX & JS 
+#### 描述
+
+jsx 是 react 的语法糖
+
+允许在 html 中写 js
+
+需要通过 babel、webpack 编译转化为 JS 执行
+
+#### 区别
+
+JS 可以直接在浏览器中执行 - JSX 需要编译
+
+JSX 是 React.createElement 的语法糖
+
+```jsx
+// jsx React 17RC 版本之前，都需要在组件顶部引入
+// jsx 最终都会被转换成 React.createElement... 去创建元素 
+import React from 'react';
+```
+
+```javascript
+// jsx React 17RC 版本之后
+// jsx 可以不被转换成 React.createElement
+
+function App(){
+  return <h1>hello</h1>
+}
+//编译
+import {jsx as _jsx} from 'react/jsx-runtime'
+
+function App(){
+  return _jsx('h1',{children:"hello"})
+}
+```
+
+### 为什么 React 自定义组件首字母大写
+
+- React.createElement 参数类型
+  - type 元素类型
+  - props 元素属性
+  - children 子元素
+
+jsx => vDOM => DOM
+
+小写开头会被判定为字符串
+大写开头在 React 中会识别为变量
+
+```js
+<app>hello</app>
+// 转译
+React.createElement('app',null,'hello')
+// 会报错  因为没有名为 app 的标签
+
+<App>hello</App>
+React.createElement(App,null,'hello')
+```
+
+### React 设计思想
+
+#### 组件化
+
+开闭原则
+
+封闭：组件内部状态由自身维护 - 只处理内部渲染逻辑
+
+开放：针对组件通信 - 不同组件可以通过 props 单向数据流进行交互
+
+#### 数据驱动视图
+
+公式： UI = f(data)
+
+不能直接操作 DOM - 修改数据 state props - 数据驱动视图更新
+
+#### 虚拟 DOM
+
+DOM 操作消耗性能(遍历真实 DOM 性能损失太大) - vDOM - 描述真实 DOM 的 js 对象
+
+更新时会进行两次 vDOM 的比较
+new vDOM - old vDOM
+通过 diff 进行比较得到需要更新的部分 - 数据增量更新
+通过 vDOM 来简化真实 DOM 提高 diff 算法性能从而提升 DOM 操作过程的性能
+
+### ReactEvent & DOMEvent
+#### 区别
+
+1. React 的 event 是 SyntheticEvent，模拟出来 DOM 的所有能力
+2. event.nativeEvent 才是原生事件对象
+3. 所有的事件，都被挂载到 document 上
+4. 和 DOM 事件不一样，和 Vue 事件也不一样
+
+```js
+function App(){
+    const getEvent =(e)=>{
+        console.log(e.target)
+        console.log(e.currentTarget)
+        console.log(e.nativeEvent.target)
+        console.log(e.nativeEvent.currentTarget)
+    }
+    return (
+    <>
+        <button onClick={getEvent} >click</button>    
+    </>
+    )
+}
+```
 
 **<font color="#1565c0"></font>**
 **<font color="#1565c0"></font>**
