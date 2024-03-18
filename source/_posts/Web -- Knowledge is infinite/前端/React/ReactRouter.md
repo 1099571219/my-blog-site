@@ -224,5 +224,67 @@ export default NotFound
 | history  |  url/login  | history 对象 + pushState 事件 |       需要       |
 |   hash   | url/#/login |     监听 hashChange 事件      |      不需要      |
 
+## 优化相关
+
+### 使用组件懒加载
+
+#### 基本使用
+
+路由懒加载是指路由的 JS 资源只有在被访问时才会动态获取，目的是为了 **<font color="#1565c0">优化项目首次打开的时间</font>**
+
+1. 把路由修改为由 React 提供的 **<font color="#1565c0">lazy 函数进行动态导入</font>**
+2. 使用 React 内置的 **<font color="#1565c0">Suspense 组件</font>** 包裹路由中 element 选项对应的组件
+
+```js
+import {lazy} from 'react'
+import {AuthRoute} from '@/components/AuthRoute'
+
+// 1. lazy 函数对组件进行导入
+const Home = lazy(()=>import('@/pages/Home'))
+const Article = lazy(()=>import('@/pages/Article'))
+const Publish = lazy(()=>import('@/pages/Publish'))
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <AuthRoute><Layout/></AuthRoute>
+    children:[
+      {
+        index:true,
+        element: <Suspense fallback={'加载中'}><Home /></Suspense>
+      },
+      {
+        path: 'article',
+        element: <Suspense fallback={'加载中'}><Article /></Suspense>
+      },
+      {
+        path: 'publish',
+        element: <Suspense fallback={'加载中'}><Publish /></Suspense>
+      }
+    ]
+  }
+])
+```
+
+#### 根据条件进行组件懒加载
+
+适用于组件不会随条件频繁切换
+
+```jsx
+function App(){
+  let LazyComponent = null
+  if(true){
+    LazyComponent = lazy(()=>import(/* webpackChunkName: "Home" */"./Home"))
+  }else{
+    LazyComponent = lazy(()=>import(/* webpackChunkName: "List" */"./List"))
+  }
+  return (
+    <Suspense fallback={<div>Loading..</div>}>
+      <LazyComponent />
+    </Suspense>
+  )
+}
+
+```
 
 **<font color="#1565c0"></font>**
