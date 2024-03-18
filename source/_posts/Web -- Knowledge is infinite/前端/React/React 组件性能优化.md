@@ -3,6 +3,7 @@ title: React 组件性能优化
 categories:
   - [Web -- Knowledge is infinite, 前端, React]
 tag: React
+mermaid: true
 date: 2024-02-04
 ---
 
@@ -608,5 +609,53 @@ const App = ()=>{
 }
 
 ```
+
+## useMemo 避免无效渲染
+
+作用：在组件每次重新渲染的时候 **<font color="#1565c0">缓存计算的结果</font>**
+
+```jsx
+const res = useMemo(() => {
+  // 使用 useMemo 做缓存之后可以保证只有
+  // count1 依赖项发生变化才会重新计算
+  // 返回计算的结果
+}, [count1]);
+```
+
+## useCallback 保持函数引用稳定
+
+作用：在组件多次重新渲染的时候 **<font color="#1565c0">缓存函数</font>**
+
+```jsx
+const Input = memo(function Input({ onChange }) {
+  console.log("子组件重新渲染了");
+  return <input type="text" onChange={(e) => onChange(e.target.value)} />;
+});
+
+function App() {
+  // 传给子组件的函数
+  const changeHandler = (value) => console.log(value);
+  // 触发父组件重新渲染的函数
+  const [count, setCount] = useState(0);
+  return (
+    <div className="App">
+      {/** 把函数作为 prop 传递给子组件 */}
+      <Input onChange={changeHandler} />
+      <button onClick={() => setCount(count + 1)}>{count}</button>
+    </div>
+  );
+}
+```
+
+### 基础用法
+
+```jsx
+// useCallback 的第二个参数为依赖项，当需要变更引用时使用
+const changeHandler = useCallback((value) => console.log(value), []);
+```
+
+使用 useCallback 包裹函数之后，函数可以保证在 **<font color="#1565c0">App 重新渲染的时候保持引用稳定</font>**
+
+
 
 **<font color="#1565c0"></font>**

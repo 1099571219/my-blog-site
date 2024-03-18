@@ -612,6 +612,53 @@ function App() {
 export default App;
 ```
 
+#### 传递自定义比较逻辑
+
+memo 方法的第二个参数是个函数，根据该函数返回值来判断是否跳过渲染
+false - 重新渲染
+true - 跳过渲染
+跟 shouldComponentUpdate 正好相反
+
+```jsx
+function compare(prevProps, nextProps) {
+  if (
+    prevProps.person.name !== nextProps.person.name ||
+    prevProps.person.age !== nextProps.person.age
+  ) {
+    return false;
+  }
+  return true;
+}
+
+const ShowPerson = memo(function ({ person }) {
+  console.log("render..");
+  return (
+    <div>
+      {person.name} {person.age}
+    </div>
+  );
+}, compare);
+
+function App() {
+  const [person, setPerson] = useState({
+    name: "张三",
+    age: 20,
+    job: "programmer",
+  });
+  useEffect(() => {
+    setInterval(() => {
+      setPerson({ ...person, job: "coder" });
+    }, 1000);
+  }, []);
+  return (
+    <div>
+      <ShowPerson person={person} />
+    </div>
+  );
+}
+```
+
+
 #### props 的比较机制
 
 机制: 在使用 memo 缓存组件之后，React 会对 **<font color="#1565c0">每一个 prop</font>** 使用 **<font color="#1565c0">Object.is</font>** 比较新值和老值，返回 true，表示没有变化
