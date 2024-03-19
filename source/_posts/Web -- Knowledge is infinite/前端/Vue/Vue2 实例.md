@@ -1,12 +1,12 @@
 ---
-title: Vue 实例
+title: Vue2 实例
 categories: 
 - [Web -- Knowledge is infinite,前端,Vue]
 tag: Vue
 date: 2023-11-24
 ---
-# Vue 实例
-## 如何使用 Vue 实例
+# Vue2 实例
+## 如何使用 Vue2 实例
 ### 方法一：从 HTML 得到视图
 完整版Vue
 从 CDN 引用 vue.js 或 vue.min.js 即可做到

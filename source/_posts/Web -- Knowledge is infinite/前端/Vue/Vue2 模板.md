@@ -1,28 +1,24 @@
 ---
-title: Vue 模板
-categories: 
-- [Web -- Knowledge is infinite,前端,Vue]
+title: Vue2 模板
+categories:
+  - [Web -- Knowledge is infinite, 前端, Vue]
 tag: Vue
 date: 2023-11-24
 ---
 
-# Vue 模板
+# Vue2 模板
 
 ## 模板
 
 ### 一、Vue 完整版，写在 HTML 里
 
 ```vue
-<div id = xxx>
+<div id="xxx">
   {{n}}
   <button @click="add">+1</button>
 </div>
 
-new Vue({
-	el:'#xxx',
-  data:{n:0}, // data 克洛伊改成函数
-  methods:{add(){}}
-})
+new Vue({ el:'#xxx', data:{n:0}, // data 克洛伊改成函数 methods:{add(){}} })
 ```
 
 ### 二、Vue 完整版，写在选项里
@@ -31,7 +27,7 @@ new Vue({
 <div id="app">
 </div>
 new Vue({ template:`
-    <div>
+<div>
     	{{n}}
       <button @click="add">+1</button>
     </div>
