@@ -5,9 +5,9 @@ categories:
 tag: Vue
 date: 2023-11-24
 ---
-# Vue 数据响应式
+# Vue2 数据响应式
 若一个物体能对外界的刺激作出反应，它就是响应式
-## Vue 的 data 是响应式
+## Vue2 的 data 是响应式
 const vm = new Vue({data:{n:0}})
 如果修改 vm.n，那么 UI  中的 n 就会响应我
 Vue 2 通过 Object.defineProperty 来实现数据响应式
