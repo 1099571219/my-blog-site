@@ -5,26 +5,14 @@ categories:
 tag: Vue
 date: 2023-11-24
 ---
-# Vue 模板
----
-title: Vue 模板
-categories: 
-- [Web -- Knowledge is infinite,前端,Vue]
----
-## Vue 模板
----
-title: Vue 模板
-categories:
-  - [Web -- Knowledge is infinite, 前端, Vue]
----
 
-## Vue 模板
+# Vue 模板
 
 ## 模板
 
 ### 一、Vue 完整版，写在 HTML 里
 
-```javascript
+```vue
 <div id = xxx>
   {{n}}
   <button @click="add">+1</button>
@@ -41,9 +29,9 @@ new Vue({
 
 ```vue
 <div id="app">
-  </div>
+</div>
 new Vue({ template:`
-<div>
+    <div>
     	{{n}}
       <button @click="add">+1</button>
     </div>
