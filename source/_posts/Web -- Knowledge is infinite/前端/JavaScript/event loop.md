@@ -66,17 +66,40 @@ p3.then((res) => {
 // 执行结果是
 // 5 -> 6 -> 8 -> 7 -> 1 -> 4 -> 2 -> 3
 /** 过程
-p macro:{
-  micro: console.log(1);
-  micro: console.log(4);
-  micro: console.log(2);
+macro :{
+    p:{
+        unsettled_promiseCallbacks:{
+                1 => newPromise_unsettled_promiseCallbacks:{
+                    2
+                }
+                4
+        }
+    }
+    p2:{
+        unsettled_promiseCallbacks:{
+            3
+        }
+    }
 }
-p2 macro:{
-  micro: console.log(3);
+
+micro:{
+    p3:{
+        settled_push_queueMicroTask 5:{
+            5 => newPromise_unsettled_promiseCallbacks:{
+                7
+            }
+        }
+    }
+    p4:{
+        settled_push_queueMicroTask 6:{
+            6
+        }
+    }
+    p3:{
+        settled_push_queueMicroTask:{
+            8
+        }
+    }
 }
-p3 micro: console.log(5);
-p4 micro: console.log(6);
-p3 micro: console.log(8);
-p3 micro: console.log(7);
  */
 ```
