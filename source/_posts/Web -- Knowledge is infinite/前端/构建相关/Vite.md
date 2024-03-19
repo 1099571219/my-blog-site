@@ -13,7 +13,7 @@ pnpm create vite 实际上就等于使用 create-vite 脚手架创建项目
 ### out of box 开箱即用
 在依赖预构建处理过程中如果遇到了非绝对或相对路径的引用，则会尝试开启路径补全，以此方式自动引入 node_modules 模块，并且对依赖的引用进行集成，避免浏览器对第三方依赖的死亡式引用请求，让项目正常在浏览器上运行
 ### 依赖预构建
-首先 vite 会找到入口文件直接引用的依赖（bare-import，不包含按需加载模块的依赖），然后调用 esbuild （对 js 模块规范进行统一的库），将 esm 以外的模块规范统一转成 esm 模块规范，然后放到当前目录的 node_modules/.vite/deps 下，同时对 esmodule 规范的各个模块进行统一集成（import 重写成 function）
+首先 vite 会找到入口文件直接引用的依赖（bare-import，不包含按需加载模块的依赖），然后调用 esbuild （对 js 模块规范进行统一的库），将 esm 以外的模块规范统一转成 esm 模块规范，然后放到当前目录的 node_modules/.vite/deps 下，同时 vite 会对 esmodule 规范的各个模块进行统一集成（import 重写成 function）
 #### 解决问题
 
 1. vite 无法对 esm 以外的模块规范进行整合，有了依赖预构建调用 esbuild 就能对第三方依赖的导出格式进行统一
