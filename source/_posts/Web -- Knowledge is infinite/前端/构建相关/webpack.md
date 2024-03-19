@@ -173,7 +173,7 @@ compilation.chunk：chunk 即是多个 modules 组成而来的一个代码块，
 compilation.assets 可以访问本次打包生成所有文件的结果
 compilation.hooks 可以注册 tapable 的不同种类的 hook ，用于在 compilation 编译模块阶段进行逻辑添加以及修改
 ##### 生命周期简图
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/23100954/1698501762654-86a7a526-1543-44ca-a100-e5246257b2b7.png#averageHue=%23faf5f2&clientId=ucd2fcd0a-67b5-4&from=paste&height=774&id=uc3727ab0&originHeight=1064&originWidth=769&originalType=binary&ratio=1.375&rotation=0&showTitle=false&size=227838&status=done&style=none&taskId=u41e05832-e513-4861-b671-3e04b4062c4&title=&width=559.2727272727273)
+![image.png](/images/build/webpack.png)
 
 
 ## Compiler & Compilation
