@@ -2,7 +2,7 @@
 title: git本地仓库
 categories: 
 - [Web -- Knowledge is infinite,代码仓库,Git]
-tag: Git
+tag: 代码仓库
 date: 2023-11-24
 ---
 # git本地仓库

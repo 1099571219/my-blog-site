@@ -2,7 +2,7 @@
 title: GitHub 远程仓库
 categories: 
 - [Web -- Knowledge is infinite,代码仓库,Git]
-tag: Git
+tag: 代码仓库
 date: 2023-11-24
 ---
 # GitHub 远程仓库
